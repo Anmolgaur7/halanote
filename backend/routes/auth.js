@@ -1,13 +1,14 @@
-// dont get afraid mainly alltehse fuction are from various node is libraries so anmol if u are coming after a long time u have just to go through the documentation of the dependencies
+// dont get afraid mainly all these function are from various node libraries so anmol if u are coming after a long time u have just to go through the documentation of the dependencies
 
 const express = require('express');
 const { body, validationResult } = require('express-validator')
 const router = express.Router();
+// Ther are two user variable elow one user and another one is User here User is model while useris the entity created in that model
 const User = require('../models/User')
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-
-const JWT_SECRET = 'dattebayo';
+const fetchuser = require('../middleware/fetchuser')
+const JWT_SECRET = 'dattebayo@7';
 
 // Create a User using: POST "/api/auth/createuser and validating it useing express -validator
 router.post('/createuser', [
@@ -15,6 +16,7 @@ router.post('/createuser', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
 ], async (req, res) => {
+// these all functions are from express validator
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -25,6 +27,7 @@ router.post('/createuser', [
         if (user) {
             return res.status(400).json({ error: "Sorry a user with this email already exists" })
         }
+        // here password is converted into hash passowrd by bcrypt
         const salt = await bcrypt.genSalt(10)
         const secpass = await bcrypt.hash(req.body.password, salt)
         user = await User.create({
@@ -71,7 +74,7 @@ router.post('/login', [
                 id: user.id
             }
         }
-        const authtoken = jwt.sign(data, JWT_SECRET);
+        const authtoken = jwt.sign(data,JWT_SECRET);
         res.json({ authtoken })
     }
     catch (error) {
@@ -79,4 +82,20 @@ router.post('/login', [
         res.status(500).send("some error occured");
     }
 })
+// now creating an endpoint for retreiving the data of the user named get user
+router.post('/getuser',fetchuser, async (req, res) => {
+    // here finding  the user whic has hitted the endpoint with his login id
+    try {
+
+       let userId = req.user.id;
+        // finding the id by user id in the data base
+        const user = await User.findById(userId).select("-password")
+        res.send(user)
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
 module.exports = router
+
+// at last router function is exported
