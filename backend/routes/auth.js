@@ -88,15 +88,30 @@ router.post('/login', [
 router.post('/getuser',fetchuser, async (req, res) => {
     // here finding  the user whic has hitted the endpoint with his login id
     try {
-
        let userId = req.user.id;
         // finding the id by user id in the data base
         const user = await User.findById(userId).select("-password")
+        if (!user) 
+        {
+            return res.status(400).json({ error: "user not present" }); 
+        }
         res.send(user)
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
     }
+})
+
+router.delete('/deleteuser',fetchuser,async(req,res)=>{
+    try {
+        let userId = req.user.id;
+        user= await User.findByIdAndDelete(userId)
+        res.status(200).send('Successfully deleted')    
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error"); 
+    }
+    
 })
 module.exports = router
 
