@@ -8,7 +8,7 @@ const fetchuser = (req, res, next) => {
         res.status(401).send({ error: "Please authenticate using a valid token" })
     }
     try {
-        const person = jwt.verify(token, JWT_SECRET)
+        const person = jwt.verify(token,JWT_SECRET)
         req.user = person.user;
         next();
     }

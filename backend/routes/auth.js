@@ -29,18 +29,18 @@ router.post('/createuser', [
         }
         // here password is converted into hash passowrd by bcrypt
         const salt = await bcrypt.genSalt(10)
-        const secpass = await bcrypt.hash(req.body.password, salt)
+        const secpass = await bcrypt.hash(req.body.password,salt)
         user = await User.create({
             name: req.body.name,
             email: req.body.email,
             password: secpass,
         })
-        const data = {
+        data = {
             user: {
                 id: user.id
             }
         }
-        const authtoken = jwt.sign(data, JWT_SECRET);
+        const authtoken = jwt.sign(data,JWT_SECRET);
         res.json(authtoken)
     }
     catch (error) {
@@ -76,6 +76,8 @@ router.post('/login', [
         }
         const authtoken = jwt.sign(data,JWT_SECRET);
         res.json({ authtoken })
+        console.log(authtoken);
+        
     }
     catch (error) {
         console.error(error.message)

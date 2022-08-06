@@ -17,7 +17,7 @@ router.get('/fetchnotes', fetchuser, async (req, res) => {
 // this endpoint is used to add notes to tha data ae here data is taken as a post request then is is ppplaced as a note is other collection in our data abase it saves data of user by taking the user id as a foreign key.
 router.post('/addnotes', fetchuser, [
     body('title', 'Enter a valid title').isLength({ min: 3 }),
-    body('decription', 'Password must be atleast 5 characters').isLength({ min: 5 }),
+    body('description', 'description must be atleast 5 characters').isLength({ min:1 }),
 ], async (req, res) => {
     try {
     // here destructring is done agaisnt the body of the req here reeq will be agaisnt the auth-token 
