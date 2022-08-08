@@ -8,16 +8,19 @@ export default function home() {
     return (
         <>
             <div className='bg-black'>
+                <div className='w-full h-4 bg-yellow-300'>
+                
+                </div>
                 <div className=' flex justify-evenly  flex-wrap pt-10'>
-                    <img src={Home1} alt="some network  error" className='w-96 h-1/5 m-5 border-none  rounded-full  ' />
-                    <img src={Home2} alt="Some neetwork error" className='w-96 h-1/5 m-5 border-none  rounded-full' />
-                    <img src={Home3} alt="Some neetwork error" className='w-96 h-1/5 m-5 border-none  rounded-full' />
+                    <img src={Home1} alt="some network  error" className='w-96 h-auto m-5 border-none  rounded-full  ' />
+                    <img src={Home2} alt="Some neetwork error" className='w-96 h-auto m-5 border-none  rounded-full' />
+                    <img src={Home3} alt="Some neetwork error" className='w-96 h-auto m-5 border-none  rounded-full' />
                 </div>
                 <div className='flex justify-center items-center m-10'>
                     <h1 className='text-center font-extrabold font-mono text-8xl text-yellow-300 border-4 border-yellow-300 p-auto border-dashed w-fit'><i className='p-10'>Note making made easy</i></h1>
                 </div>
                 <p className='text-center text-2xl font-mono text-yellow-300'>Halanote which means "Go note" is note  taking application which can be used to store your importants notes on the cloud.Traditional text docs are great for writing, but thinking requires something more,and halanote provide better ui and mainly u can access your notes from any where.</p>
-                <div className=' w-screen bg-yellow-300 flex justify-center items-center mt-5'>
+                <div className=' w-full bg-yellow-300 flex justify-center items-center mt-5'>
                     <h1 className=' text-2xl font-mono text-black font-semibold p-3'>© 2022-2030 Halanote All rights reserved</h1>
                     <div className='flex ml-400px flex-wrap' >
                         <a href="/"><svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} className="w-10 h-10 m-1 animate-pulse hover:animate-none" viewBox="0 0 24 24"><rect width={20} height={20} x={2} y={2} rx={5} ry={5} /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" /></svg></a>

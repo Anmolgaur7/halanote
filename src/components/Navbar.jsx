@@ -1,5 +1,6 @@
 import React from 'react'
 import Logo from "../images/logo.png";
+import Main from './Main';
 export default function Navbar() {
   return (
    <>
@@ -17,6 +18,7 @@ export default function Navbar() {
     </li>
     </ul>
     </nav>
+    <Main/>
    </div>
    </>
   )
