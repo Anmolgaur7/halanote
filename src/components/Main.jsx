@@ -5,15 +5,13 @@ import Notecontext from '../context/Notes/Notecontext'
 export default function Main() {
   const handleclick=(e)=>{
     e.preventDefault()
-    Addnote(note.title,note.description,note.tag)
+     Addnote(note.title,note.description,note.tag)
     }
     const onchange= async(e)=>{
      setnote({ ...note, [e.target.name]: e.target.value, })
     } 
   const context = useContext(Notecontext)
   const {Addnote}=context
-
-
   const[note,setnote]=useState({title:"",description:"",tag:""})
   return (
     <>
@@ -69,7 +67,7 @@ export default function Main() {
             type="submit"
             className="text-black bg-yellow-400 hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-xl p-5  text-center dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-300" onClick={handleclick}
           >
-            Add to your diary
+            Add to your diary❤
           </button>
         </form>
         <div className="mt-7 ml-4 mr-4 mb-4">

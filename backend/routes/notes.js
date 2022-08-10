@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator')
 // this endpoint is used to fetch the notes of user by their id it wi;; check at Notes model in our database
 router.get('/fetchnotes', fetchuser, async (req, res) => {
     try {
-        const notes = await Notes.find({ user: req.user.id })
+        const notes = await Notes.find({user:req.user.id })
         res.json(notes)
     } catch (error) {
         console.error(error.message)
