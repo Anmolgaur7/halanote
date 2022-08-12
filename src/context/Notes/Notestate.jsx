@@ -16,10 +16,9 @@ const notecontext= []
       }
     });
     const json = await response.json()
-    console.log(json);
     setNotes(json)
   }
-  //  
+  //Here data is  asdded through the api we created in the backend  i 
     const Addnote = async (title, description, tag) => {
       const response = await fetch(`${host}/api/note/addnotes`, {
         method: 'POST',
@@ -29,19 +28,11 @@ const notecontext= []
         },
         body: JSON.stringify({title, description, tag})
       });
-  console.log(response);
-  const note={
-    "_id": "61322f19553781a8c68d0e08",
-    "user": "6131dc5e3e4037cd4734a066",
-    "title": title,
-    "description": description,
-    "tag": tag,
-    "date": "2021-09-03T14:20:09.668Z",
-    "__v": 0
+      const json=await response.json()
+      const note=json
+      setNotes(notes.concat(note))
   }
-  setNotes(notes.concat(note))
-  }
-  // 
+  // this shit isnnot working right now
   const Updatenote = async (id, title, description, tag) => {
     // API Call 
     const response = await fetch(`${host}/api/note/updatenote/${id}`, {
