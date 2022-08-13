@@ -36,7 +36,7 @@ const notecontext= []
   const Updatenote = async (id, title, description, tag) => {
     // API Call 
     const response = await fetch(`${host}/api/note/updatenote/${id}`, {
-      method: 'POST',
+      method: 'put',
       headers: {
         'Content-Type': 'application/json',
         "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJmM2Y0YTdlZWE4Y2M2MjkxMGFiYzEyIn0sImlhdCI6MTY2MDE1NTA1OH0.bCSbMQgGgy9P-QaPHOuvZha83WSO97fuciCg0CHlo9A"
@@ -49,9 +49,9 @@ const notecontext= []
     for (let index = 0; index < notes.length; index++) {
       const element = notes[index];
       if (element._id === id) {
-        element.title = title;
-        element.description = description;
-        element.tag = tag;
+        notes[index].title = title;
+        notes[index].description = description;
+        notes[index].tag = tag;
       }
     }
   }

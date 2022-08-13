@@ -11,10 +11,10 @@ export default function Navbar() {
     <img src={Logo} alt="some error occured" className='w-76 h-36'  />
     </li>
     <li className='ml-auto '>
-  <a href="/" className='m-5 font-mono text-yellow-300 text-3xl hover:text-yellow-200 '>Login</a>
+  <a href="/login" className='m-5 font-mono text-yellow-300 text-3xl hover:text-yellow-200 '>Login</a>
     </li>
     <li className='m-5'>
-    <button className='bg-yellow-300 text-black font-bold text-4xl border-none rounded-xl p-2  text-center hover:bg-yellow-200'><a href="/"className='m-5'>Get Started</a></button>
+    <button className='bg-yellow-300 text-black font-bold text-4xl border-none rounded-xl p-2  text-center hover:bg-yellow-200'><a href="/signup"className='m-5'>Get Started</a></button>
     </li>
     </ul>
     </nav>

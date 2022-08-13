@@ -2,8 +2,6 @@ import React from 'react'
 import Home1 from "../images/home1.jpg";
 import Home2 from "../images/home2.jpg";
 import Home3 from "../images/home3.webp";
-
-
 export default function home() {
     return (
         <>
