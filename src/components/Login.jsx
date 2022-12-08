@@ -34,7 +34,7 @@ export default function Login()
 }
   return (
   <>
-  <h1 className='text-black m-4 font-mono font-bold text-3xl'>Login to your account🙌</h1>
+  <h1 className='text-black m-4 font-mono font-bold text-3xl'>Login to ur account🙌</h1>
   <form className='m-4'onSubmit={handlesubmit} >
   <div className="mb-6">
     <label

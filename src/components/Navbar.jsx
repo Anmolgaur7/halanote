@@ -22,7 +22,7 @@ export default function Navbar() {
     <li className='m-5'>
     <button className='bg-yellow-300 text-black font-bold text-4xl border-none rounded-xl p-2  text-center hover:bg-yellow-200'><Link to="/signup"className='m-5'>Get Started</Link></button>
     </li>
-    </div>:<button className='bg-yellow-300 text-black font-bold text-4xl ml-auto border-none rounded-xl p-2  text-center hover:bg-yellow-200' onClick={handlelogout}>Log out</button>}
+    </div>:<button className='bg-yellow-300 text-black font-bold text-4xl ml-auto border-none rounded-xl p-2 mr-3  text-center hover:bg-yellow-200' onClick={handlelogout}>Log out</button>}
     </ul>
     </nav>
    </div>
