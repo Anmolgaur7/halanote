@@ -1,8 +1,25 @@
-import React, { useState,useContext } from 'react'
+import React, {useRef, useState,useContext } from 'react'
 import Notes from './Notes'
 import Notecontext from '../context/Notes/Notecontext'
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 
 export default function Main() {
+  const { transcript, resetTranscript } = useSpeechRecognition();
+  const [isListening, setIsListening] = useState(false);
+  const microphoneRef = useRef(null);
+  const handleListing = () => {
+    setIsListening(true);
+    SpeechRecognition.startListening({
+      continuous: true,
+    });
+  };
+  const stopHandle = () => {
+    setIsListening(false);
+    SpeechRecognition.stopListening();
+    note.description=transcript
+  };
+
+
   const context = useContext(Notecontext)
   const {Addnote}=context
   const[note,setnote]=useState({title:"",description:"",tag:""})
@@ -34,6 +51,8 @@ export default function Main() {
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-400 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
               required minLength={5}
             />
+            
+
           </div>
           <div className="mb-6">
             <label
@@ -50,7 +69,20 @@ export default function Main() {
               onChange={onchange}
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                required minLength={5}/>
+               <button
+            type="submit"
+            className="text-black bg-yellow-400 hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium m-2 rounded-lg text-xl p-2 text-center dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-300"onClick={handleListing}
+          >
+            Start Listening
+          </button>
+          <button
+            type="submit"
+            className="text-black bg-yellow-400 hover:bg-yellow-300 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium m-2 rounded-lg text-xl p-2 text-center dark:bg-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-300"onClick={stopHandle}
+          >
+            Stop Listening
+          </button>
           </div>
+
           <div className="mb-6">
             <label
               htmlFor="tag"
@@ -74,6 +106,7 @@ export default function Main() {
             Add to your diary❤
           </button>
         </form>
+        {/* <h1>{transcript}</h1> */}
         <div className="mt-7 ml-4 mr-4 mb-4">
           <h1 className="text-4xl text-black font-mono"> Your notes</h1>
         <Notes/>

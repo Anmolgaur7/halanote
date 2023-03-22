@@ -1,5 +1,5 @@
 import React from 'react'
-import Home1 from "../images/home1.jpg";
+import Home1 from "../images/home1.jpeg";
 import Home2 from "../images/home2.jpg";
 import Home3 from "../images/home3.webp";
 export default function home() {
@@ -7,7 +7,6 @@ export default function home() {
         <>
             <div className='bg-black'>
                 <div className='w-full h-4 bg-yellow-300'>
-                
                 </div>
                 <div className=' flex justify-evenly  flex-wrap pt-10'>
                     <img src={Home1} alt="some network  error" className='w-96 h-auto m-5 border-none  rounded-full  ' />
@@ -15,7 +14,7 @@ export default function home() {
                     <img src={Home3} alt="Some neetwork error" className='w-96 h-auto m-5 border-none  rounded-full' />
                 </div>
                 <div className='flex justify-center items-center m-10'>
-                    <h1 className='text-center font-extrabold font-mono text-8xl text-yellow-300 border-4 border-yellow-300 p-auto border-dashed w-fit'><i className='p-10'>Note making made easy</i></h1>
+                    <h1 className='text-center font-extrabold font-mono text-7xl p-8 text-yellow-300 border-4 border-yellow-300 p-auto border-dashed w-fit'><i className=''>Note making made easy</i></h1>
                 </div>
                 <p className='text-center text-2xl font-mono text-yellow-300'>Halanote which means "Go note" is note  taking application which can be used to store your importants notes on the cloud.Traditional text docs are great for writing, but thinking requires something more,and halanote provide better ui and mainly u can access your notes from any where.</p>
                 <div className=' w-full bg-yellow-300 flex justify-center items-center mt-5'>

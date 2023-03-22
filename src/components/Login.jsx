@@ -1,5 +1,7 @@
-import React,{useState} from 'react'
+import React,{useRef,useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+
+
 
 export default function Login() 
 {
@@ -16,6 +18,7 @@ export default function Login()
         },
         body: JSON.stringify({email: credentials.email, password: credentials.password})
     });
+
     const json = await response.json()
     console.log(json);
     // i have created an success variable in auth route  here if it is tue then it is proceeded
@@ -64,6 +67,7 @@ export default function Login()
       type="password"
       id="password"
       name='password'
+      placeholder='Enter a Password'
       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       required=""
       onChange={onchange}
